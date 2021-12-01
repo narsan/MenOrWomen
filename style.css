@@ -1,4 +1,14 @@
-/* Setting a responsive background image for our project */
+@font-face {
+    font-family: Roboto;
+    src: url(assets/Roboto/Roboto-Regular.ttf);
+}
+
+* {
+    font-family: Roboto;
+  }
+
+/* Setting a responsive background image for our project  */
+
 body { 
     background: url(assets/background.jpg);
     background-repeat:   no-repeat;
@@ -13,6 +23,9 @@ body {
     background-color: rgba(247, 243, 236, 0.1);
     border: 1px solid rgb(7, 7, 7);
     border-radius: 25px;
+    height: 15px;
+    width: 130px;
+    font-size: small;
 }
 
 /* Defining a grid container to put our item in it.
@@ -53,6 +66,7 @@ body {
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 15px;
+    font-size: small;
 
   }
   .button5 {
