@@ -25,6 +25,11 @@ function submitfunc() {
         res = httpGet(`https://api.genderize.io/?name=${username}`);
         resobj = JSON.parse(res);
         if (localStorage.getItem(username) != null) {
+            document.getElementById("saved_result").style.border = "thin dotted";
+            document.getElementById("saved_result").style.borderRadius = "25px";
+            document.getElementById("saved_result").style.padding = "5px";
+            document.getElementById("saved_result").style.marginRight = "20px";
+
             document.getElementById("saved_answer").innerHTML = "Saved Answer";
             document.getElementById("result_from_saved").innerHTML = localStorage.getItem(username);
             let btn = document.createElement("button");
@@ -101,4 +106,3 @@ function capitalizeFirstLetter(string) {
 function clearStorage(item) {
     localStorage.removeItem(item);
 }
-
