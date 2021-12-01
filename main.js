@@ -4,6 +4,9 @@
 function submitfunc() {
     event.preventDefault();    
     var username = document.getElementById("fname").value;
+    if (document.getElementById("clearbtn") != null){
+        document.getElementById("clearbtn").remove();
+    }
     
     if (document.querySelector('input[name="sex"]:checked') != null) {
         var sex = document.querySelector('input[name="sex"]:checked').value;
@@ -28,6 +31,7 @@ function submitfunc() {
             btn.innerHTML = "Clear";
             btn.classList.add("button");
             btn.classList.add("button5");
+            btn.id = "clearbtn";
             btn.onclick = function () {
                 clearStorage(username);
                 document.getElementById("saved_result").remove();
@@ -35,7 +39,10 @@ function submitfunc() {
             document.getElementById("saved_result").appendChild(btn);
         }
         else{
-            document.getElementById("saved_result").remove();
+            if (document.getElementById("saved_result") != null){
+                document.getElementById("saved_result").remove();
+            }
+           
         }
      
         if (resobj["gender"] == null) {
@@ -95,16 +102,3 @@ function clearStorage(item) {
     localStorage.removeItem(item);
 }
 
-// fetch(url).then((response) => {
-//     if (response.ok) {
-//       return response.json();
-//     } else {
-//       throw new Error('Something went wrong');
-//     }
-//   })
-//   .then((responseJson) => {
-//     // Do something with the response
-//   })
-//   .catch((error) => {
-//     console.log(error)
-//   });
