@@ -2,8 +2,9 @@
 // and we check if the raidio button selected or not
 
 function submitfunc() {
-    event.preventDefault();
+    event.preventDefault();    
     var username = document.getElementById("fname").value;
+    
     if (document.querySelector('input[name="sex"]:checked') != null) {
         var sex = document.querySelector('input[name="sex"]:checked').value;
     }
@@ -33,9 +34,14 @@ function submitfunc() {
             };
             document.getElementById("saved_result").appendChild(btn);
         }
+        else{
+            document.getElementById("saved_result").remove();
+        }
+     
         if (resobj["gender"] == null) {
             error_msg = document.getElementById("predictsex");
             error_msg.style.color = 'rgb(138, 5, 5)';
+            document.getElementById("prediction_number").innerHTML = '';
             document.getElementById("predictsex").innerHTML = "The input name is not available";
         }
         else {
@@ -88,3 +94,17 @@ function capitalizeFirstLetter(string) {
 function clearStorage(item) {
     localStorage.removeItem(item);
 }
+
+// fetch(url).then((response) => {
+//     if (response.ok) {
+//       return response.json();
+//     } else {
+//       throw new Error('Something went wrong');
+//     }
+//   })
+//   .then((responseJson) => {
+//     // Do something with the response
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   });
