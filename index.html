@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title> Men or Women </title>
+        <link rel="stylesheet" href="style.css" />
+    </head> 
+    <body>
+        <div class="grid-container">
+            <form class="grid-item" id="firstform">
+                <h2>Mr. or Ms.?</h2>
+                <label for="fname">Name</label>
+                <input type="text" id="fname" name="fname" class="tbox" maxlength="255"><br><br>
+                <input type="radio" name="sex" id="male" value="male" />        
+                <label for="male">Male</label><br/><br/>
+                <input type="radio" name="sex" id="female" value="female" />        
+                <label for="female">Female</label><br/><br/>
+                <button class="button button5" type="submit" id="submitform" onclick="submitfunc()">Submit</button><br/>
+                <button class="button button5" id="savedata"  onclick="saveItem()">Save</button>
+
+            </form>
+            <div class="grid-item" >
+                <div>
+                    <h2>Prediction</h2>
+                    <p id ="predictsex"></p>
+                    <p id="prediction_number"></p>
+                </div>
+                <div id="saved_result">
+                    <h2 id="saved_answer"></h2>
+                    <p id="result_from_saved"></p>
+                </div>    
+                    
+            </div>   
+        </div>
+        <script src="main.js"></script>
+
+    </body>
+</html>       
