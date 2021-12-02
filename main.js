@@ -25,12 +25,27 @@ function submitfunc() {
         res = httpGet(`https://api.genderize.io/?name=${username}`);
         resobj = JSON.parse(res);
         if (localStorage.getItem(username) != null) {
+            if(document.getElementById("saved_result") == null){
+                let elem = document.createElement("div");
+                elem.id = "saved_result";
+                document.getElementById("gridItem").appendChild(elem);
+            }
             document.getElementById("saved_result").style.border = "thin dotted";
             document.getElementById("saved_result").style.borderRadius = "25px";
             document.getElementById("saved_result").style.padding = "5px";
             document.getElementById("saved_result").style.marginRight = "20px";
-
+            if(document.getElementById("saved_answer") == null){
+                let elem = document.createElement("h2");
+                elem.id = "saved_answer";
+                document.getElementById("saved_result").appendChild(elem)
+            }
             document.getElementById("saved_answer").innerHTML = "Saved Answer";
+
+            if (document.getElementById("result_from_saved") == null){
+                let elem = document.createElement("p");
+                elem.id = "result_from_saved";
+                document.getElementById("saved_result").appendChild(elem)
+            }
             document.getElementById("result_from_saved").innerHTML = localStorage.getItem(username);
             let btn = document.createElement("button");
             btn.innerHTML = "Clear";
@@ -57,6 +72,7 @@ function submitfunc() {
             document.getElementById("predictsex").innerHTML = "The input name is not available";
         }
         else {
+            document.getElementById("predictsex").style.color = "Black";
             document.getElementById("predictsex").innerHTML = capitalizeFirstLetter(resobj["gender"]);
             document.getElementById("prediction_number").innerHTML = resobj["probability"];
         }
